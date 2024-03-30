@@ -28,3 +28,13 @@ export type GroceryStore = {
     imageUrl: string;
     lastUpdated: string;
 };
+
+
+export type GroceryStoreSearchResponse = {
+    data: GroceryStore[];
+    pagination: {
+      total: number;
+      page: number;
+      pages: number;
+    };
+  };
