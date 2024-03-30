@@ -116,9 +116,9 @@ const DetailPage = () => {
             />
         <CardFooter>
           <CheckoutButton
-             disabled={cartItems.length === 0}
-             onCheckout={onCheckout}
-      
+                disabled={cartItems.length === 0}
+                onCheckout={onCheckout} 
+                isLoading={false}      
            />
         </CardFooter>
           </Card>
