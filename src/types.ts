@@ -38,3 +38,24 @@ export type GroceryStoreSearchResponse = {
       pages: number;
     };
   };
+
+  export type Order = {
+    _id: string;
+    groceryStore: GroceryStore;
+    user: User;
+    cartItems: {
+      productId: string;
+      productName: string;
+      quantity: string;
+    }[];
+    deliveryDetails: {
+      name: string;
+      addressLine1: string;
+      city: string;
+      email: string;
+    };
+    totalAmount: number;
+    
+    createdAt: string;
+    restaurantId: string;
+  };

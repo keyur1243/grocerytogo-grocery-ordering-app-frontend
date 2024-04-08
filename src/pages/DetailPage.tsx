@@ -9,6 +9,7 @@ import { Product as ProductType} from "@/types";
 import { Card, CardFooter } from "@/components/ui/card";
 import CheckoutButton from "@/components/CheckoutButton";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
+import { useCreateCheckoutSession } from "@/api/OrderApi";
 export type CartItem = {
     _id: string;
     name: string;
@@ -21,6 +22,7 @@ export type CartItem = {
 const DetailPage = () => {
   const { groceryStoreId } = useParams();
   const { groceryStore, isLoading } = useGetGroceryStore(groceryStoreId);
+  const { createCheckoutSession, isLoading: isCheckoutLoading } = useCreateCheckoutSession();
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storedCartItems = sessionStorage.getItem(`cartItems-${groceryStoreId}`);
     return storedCartItems ? JSON.parse(storedCartItems) : [];
@@ -79,7 +81,27 @@ const DetailPage = () => {
 
 
   const onCheckout = async (userFormData: UserFormData) => {
-    console.log("UserFormData", userFormData);
+    if (!groceryStore) {
+      return;
+    }
+    const checkoutData = {
+      cartItems: cartItems.map((cartItem) => ({
+        productId: cartItem._id,
+        productName: cartItem.name,
+        quantity: cartItem.quantity.toString(),
+      })),
+      groceryStoreId: groceryStore._id,
+      deliveryDetails: {
+        name: userFormData.name,
+        addressLine1: userFormData.addressLine1,
+        city: userFormData.city,
+        country: userFormData.country,
+        email: userFormData.email as string,
+      },
+    };
+
+    const data = await createCheckoutSession(checkoutData);
+    window.location.href = data.url;
   };
 
 
@@ -118,7 +140,7 @@ const DetailPage = () => {
           <CheckoutButton
                 disabled={cartItems.length === 0}
                 onCheckout={onCheckout} 
-                isLoading={false}      
+                isLoading={isLoading}      
            />
         </CardFooter>
           </Card>
