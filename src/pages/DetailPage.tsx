@@ -22,7 +22,7 @@ export type CartItem = {
 const DetailPage = () => {
   const { groceryStoreId } = useParams();
   const { groceryStore, isLoading } = useGetGroceryStore(groceryStoreId);
-  const { createCheckoutSession } = useCreateCheckoutSession();
+  const { createCheckoutSession, isLoading: isCheckoutLoading } = useCreateCheckoutSession();
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     const storedCartItems = sessionStorage.getItem(`cartItems-${groceryStoreId}`);
     return storedCartItems ? JSON.parse(storedCartItems) : [];
