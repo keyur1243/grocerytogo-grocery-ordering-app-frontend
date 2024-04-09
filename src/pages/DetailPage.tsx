@@ -10,9 +10,10 @@ import { Card, CardFooter } from "@/components/ui/card";
 import CheckoutButton from "@/components/CheckoutButton";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 import { useCreateCheckoutSession } from "@/api/OrderApi";
+
 export type CartItem = {
     _id: string;
-    name: string;
+    productName: string;
     price: number;
     quantity: number;
   };
@@ -47,7 +48,7 @@ const DetailPage = () => {
           ...prevCartItems,
           {
             _id: productDetail._id,
-            name: productDetail.productName,
+            productName: productDetail.productName,
             price: productDetail.price,
 
             quantity: 1,
@@ -87,7 +88,7 @@ const DetailPage = () => {
     const checkoutData = {
       cartItems: cartItems.map((cartItem) => ({
         productId: cartItem._id,
-        productName: cartItem.name,
+        productName: cartItem.productName,
         quantity: cartItem.quantity.toString(),
       })),
       groceryStoreId: groceryStore._id,
@@ -120,7 +121,7 @@ const DetailPage = () => {
       <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32">
         <div className="flex flex-col gap-4">
           <GroceryStoreInfo groceryStore={groceryStore} />
-          <span className="text-2xl font-bold tracking-tight">Menu</span>
+          <span className="text-2xl font-bold tracking-tight">Product</span>
           {groceryStore.Product.map((productDetail) => (
             <ProductDetail
               productDetail={productDetail}

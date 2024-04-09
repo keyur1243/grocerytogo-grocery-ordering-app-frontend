@@ -29,6 +29,28 @@ export type GroceryStore = {
     lastUpdated: string;
 };
 
+export type OrderStatus = "placed" | "paid" | "inProgress" | "outForDelivery" | "delivered"
+
+export type Order = {
+  _id: string;
+  groceryStore: GroceryStore;
+  user: User;
+  cartItems: {
+    productId: string;
+    productName: string;
+    quantity: string;
+  }[];
+  deliveryDetails: {
+    name: string;
+    addressLine1: string;
+    city: string;
+    email: string;
+  };
+  totalAmount: number;
+  status: OrderStatus;
+  createdAt: string;
+  restaurantId: string;
+};
 
 export type GroceryStoreSearchResponse = {
     data: GroceryStore[];
@@ -39,23 +61,4 @@ export type GroceryStoreSearchResponse = {
     };
   };
 
-  export type Order = {
-    _id: string;
-    groceryStore: GroceryStore;
-    user: User;
-    cartItems: {
-      productId: string;
-      productName: string;
-      quantity: string;
-    }[];
-    deliveryDetails: {
-      name: string;
-      addressLine1: string;
-      city: string;
-      email: string;
-    };
-    totalAmount: number;
-    
-    createdAt: string;
-    restaurantId: string;
-  };
+  

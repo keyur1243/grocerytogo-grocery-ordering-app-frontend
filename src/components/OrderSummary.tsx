@@ -39,7 +39,7 @@ const OrderSummary = ({ groceryStore, cartItems, removeFromCart}: Props) => {
               <Badge variant="outline" className="mr-2">
                 {item.quantity}
               </Badge>
-              {item.name}
+              {item.productName}
             </span>
 
             
