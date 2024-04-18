@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import aboutImage from "../assets/hero6.jpg";
-import { FaCheckCircle } from "react-icons/fa";
 
 const AboutPage = () => {
   return (
@@ -18,15 +17,15 @@ const AboutPage = () => {
             Our mission is to provide you with a seamless online shopping experience, exceptional customer service, and high-quality products delivered straight to your doorstep. We strive to make grocery shopping convenient, enjoyable, and hassle-free for everyone.
           </p>
           <div className="flex items-center mb-4">
-            <FaCheckCircle className="text-green-500 mr-3" />
+            <span className="text-green-500 mr-3">&#10003;</span> {/* Checkmark icon using Unicode character */}
             <p className="text-lg">Wide selection of products</p>
           </div>
           <div className="flex items-center mb-4">
-            <FaCheckCircle className="text-green-500 mr-3" />
+            <span className="text-green-500 mr-3">&#10003;</span> {/* Checkmark icon using Unicode character */}
             <p className="text-lg">Fast and reliable delivery</p>
           </div>
           <div className="flex items-center mb-4">
-            <FaCheckCircle className="text-green-500 mr-3" />
+            <span className="text-green-500 mr-3">&#10003;</span> {/* Checkmark icon using Unicode character */}
             <p className="text-lg">Exceptional customer service</p>
           </div>
         </div>
