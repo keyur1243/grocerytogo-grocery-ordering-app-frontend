@@ -10,6 +10,8 @@ import SearchPage from "./pages/SearchPage";
 import DetailPage from "./pages/DetailPage";
 import OrderStatusPage from "./pages/OrderStatusPage";
 import { UserProvider } from "./contexts/UserContext";
+import AboutPage from "./pages/AboutPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 
 const AppRoutes= ()=>{
@@ -32,10 +34,8 @@ const AppRoutes= ()=>{
             <Route element={<AdminProtectedRoute />}>
                 <Route path="/manage-groceryStore" element={<Layout><ManageGroceryStorePage/></Layout>} />
             </Route>        
-            
-            
-            <Route path="/about" element={<span>About</span>}/>
-            <Route path="/register" element={<span>Register</span>}/>
+            <Route path="/about" element={<Layout><AboutPage/></Layout>} />
+            <Route path="/contact-us" element={<Layout><ContactUsPage/></Layout>} />
             <Route path="/shop" element={<span>Shop</span>}/>
             <Route path="*" element={<Navigate to="/"/>}/>
         </Routes>
@@ -43,4 +43,4 @@ const AppRoutes= ()=>{
     );
 };
 
-export default AppRoutes;
+export default AppRoutes;   
