@@ -1,11 +1,13 @@
 export type User = {
-    _id: string;
-    email: string;
-    name: string;
-    addressline1: string;
-    city: string;
-    country: string;
+  _id: string,
+  email: string,
+  name: string,
+  addressline1: string,
+  city: string,
+  country: string,
+  userType: string
 };
+
 
 export type Product = {
     _id: string;
