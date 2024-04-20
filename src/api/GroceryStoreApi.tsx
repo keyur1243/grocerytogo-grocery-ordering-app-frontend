@@ -29,6 +29,29 @@ export const useGetGroceryStore = (groceryStoreId?: string) => {
 };
 
 
+// random stores hook
+export const useGetRandomGroceryStores = () => {
+  const getRandomGroceryStoresRequest = async (): Promise<GroceryStore[]> => {
+    const response = await fetch(`${API_BASE_URL}/api/groceryStore/random`);
+    
+    if (!response.ok) {
+      throw new Error('Failed to get random grocery stores');
+    }
+    
+    return response.json();
+  };
+
+  const { data: randomGroceryStores, isLoading } = useQuery(
+    'fetchRandomGroceryStores',
+    getRandomGroceryStoresRequest
+  );
+   
+  return { randomGroceryStores, isLoading };
+};
+
+
+
+
 
 
 export const useSearchGroceryStores = (searchState: SearchState,city?: string) => {

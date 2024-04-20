@@ -2,6 +2,7 @@ import landingImage from "../assets/landing.jpg";
 import appDownloadImage from "../assets/appDownload.png";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import { useNavigate } from "react-router-dom";
+import Carousel from "@/components/Carousel";
 
 const HomePage  = () => {
     const navigate = useNavigate();
@@ -21,6 +22,7 @@ const HomePage  = () => {
                      onSubmit={handleSearchSubmit}
                     />  
             </div>
+            <Carousel />
             <div className="grid md:grid-cols-2 gap-5">
                 <img src={landingImage}/>
                 <div className="flex flex-col items-center justify-center gap-4 text-center">

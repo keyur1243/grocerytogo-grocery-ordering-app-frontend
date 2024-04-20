@@ -25,7 +25,7 @@ import { AspectRatio } from "@radix-ui/react-aspect-ratio";
         <div className="flex flex-col gap-8 md:w-[50%]">
           {existingImageUrl && (
             <AspectRatio ratio={16/9}>
-              ,<img src={existingImageUrl} className="rounded-md object-cover h-full w-full" alt="Grocery-Store Picture" />
+              <img src={existingImageUrl} className="rounded-md object-cover h-full w-full" alt="Grocery-Store Picture" />
             </AspectRatio>
           )}
           <FormField

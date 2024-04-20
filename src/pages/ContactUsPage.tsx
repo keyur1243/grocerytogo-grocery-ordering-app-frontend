@@ -19,7 +19,7 @@ const ContactUsPage = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here implement the logic to submit the form data
+    // Here you can implement the logic to submit the form data
     // For now, we'll just log the form data
     console.log(formData);
     setSubmitted(true);

@@ -10,7 +10,7 @@ const Footer = () => {
             <img src={Logo} width={110} alt="GroceriesToGo Logo" className="w-28 mb-4 md:mb-8 md:mr-8" />
           </Link>
           <p className="text-white md:w-1/2">
-            Welcome to GroceryToGo! Discover fresh produce, pantry staples, and more—all delivered to your door. Shop now for convenient, hassle-free grocery shopping!
+            Welcome to GroceryToGo! Discover fresh produce, pantry staples, and more all delivered to your door. Shop now for convenient, hassle-free grocery shopping!
           </p>
         </div>
         <div className="w-full md:w-auto mt-4 md:mt-0">
